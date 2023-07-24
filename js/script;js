@@ -1,0 +1,20 @@
+const personagens = document.querySelectorAll('.personagem');
+personagens.forEach((personagens) => {
+    personagens.addEventListener('mouseenter', () => {
+        const personagemSelecionado = document.querySelector('.selecionado');
+        personagemSelecionado.classList.remove('selecionado');
+        personagens.classList.add("selecionado");
+
+        const personagemGrande = document.querySelector('.personagemGrande');
+        const personagemId = document.querySelector('.selecionado').id;
+        personagemGrande.src = `./src/imagens/card-${personagemId}.png`;    
+
+        const nomePersonagem = document.getElementById('nomePersonagem');
+        const personagemDataName = personagens.getAttribute('data-name');
+        nomePersonagem.innerText = personagemDataName;
+
+        const descricaoPersonagem = document.getElementById('descricaoPersonagem');
+        const personagemDataDisc = personagens.getAttribute('data-disc');
+        descricaoPersonagem.innerText = personagemDataDisc;
+    })
+})
